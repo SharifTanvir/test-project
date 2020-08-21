@@ -15,8 +15,8 @@ class CreateLikesTable extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
-            $table->integer('base_user');
-            $table->integer('target_user');
+            $table->unsignedInteger('base_user');
+            $table->unsignedInteger('target_user');
             $table->string('base_user_like')->nullable();
             $table->string('target_user_like')->nullable();
             $table->softDeletes();
