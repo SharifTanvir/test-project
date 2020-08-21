@@ -35,7 +35,8 @@ class HomeController extends Controller
             $current_user->longitude
             )))
             ->where('id', '!=',  auth()->id())
-            ->having('distance', '<', 0.5)
+            ->where('gender', '!=', $current_user->gender)
+            ->having('distance', '<', 5)
             ->orderBy('distance', 'asc')
             ->paginate(2);
 
